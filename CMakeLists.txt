@@ -8,8 +8,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-fPIC")
 set(CMAKE_BUILD_TYPE Release)
 
-# ch8
-add_subdirectory(pattern)
+add_subdirectory(pattern) # ch8
+add_subdirectory(3rdParty/googletest)
+
 
 set(CODE_CH9
     ThreadPool.hpp
@@ -49,3 +50,6 @@ find_package(OpenMP REQUIRED)
 
 # find_package(TBB REQUIRED)
 # target_link_libraries(main PUBLIC TBB::tbb)
+
+# test
+add_subdirectory(test)

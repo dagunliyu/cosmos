@@ -1,6 +1,9 @@
 #pragma once
+
+// AOP: aspect-oriented programing
 #define HAS_MEMBER(member)\
-template<typename T, typename... Args>struct has_member_##member\
+template<typename T, typename... Args>\
+struct has_member_##member\
 {\
 private:\
 		template<typename U> static auto Check(int) -> decltype(std::declval<U>().member(std::declval<Args>()...), std::true_type()); \
