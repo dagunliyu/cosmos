@@ -27,7 +27,7 @@ void TestF(int a, double b)
 
 int main(void)
 {
-	apply(TestF, MakeIndexes<2>::type(), std::make_tuple(1, 2));  //Êä³ö : 3
+	apply(TestF, MakeIndexes<2>::type(), std::make_tuple(1, 2));  //è¾“å‡º : 3
 
 	system("pause");
 	return 0;
