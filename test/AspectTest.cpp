@@ -47,7 +47,7 @@ void foo(int a)
 
 //int main()
 //{
-//	Invoke<LoggingAspect, TimeElapsedAspect>(&foo, 1); //织入方法
+//	Invoke<LoggingAspect, TimeElapsedAspect>(&foo, 1); //缁囧叆鏂规硶
 //cout <<"-----------------------"<< endl;
 //	Invoke<TimeElapsedAspect, LoggingAspect>(&foo, 1);
 //
@@ -56,7 +56,13 @@ void foo(int a)
 
 TEST(AspectTest, AOPInvoke)
 { 
-	Invoke<LoggingAspect, TimeElapsedAspect>(&foo, 1); //织入方法
+
+	//SoCamera* cam = viewer->getSoRenderManager()->getCamera();
+	//SbVec3f direction;
+	//cam->orientation.getValue().multVec(SbVec3f(0,0,-1), direction);
+
+
+	Invoke<LoggingAspect, TimeElapsedAspect>(&foo, 1); //缁囧叆鏂规硶
 	cout << "-----------------------" << endl;
 	Invoke<TimeElapsedAspect, LoggingAspect>(&foo, 1);
 	//ASSERT_EQ(expected, actual);

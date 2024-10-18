@@ -12,7 +12,7 @@ struct Any
 	Any(const Any& that) : m_ptr(that.Clone()), m_tpIndex(that.m_tpIndex) {}
 	Any(Any && that) : m_ptr(std::move(that.m_ptr)), m_tpIndex(that.m_tpIndex) {}
 
-	//´´½¨ÖÇÄÜÖ¸ÕëÊ±£¬¶ÔÓÚÒ»°ãµÄÀàĞÍ£¬Í¨¹ıstd::decayÀ´ÒÆ³ıÒıÓÃºÍcv·û£¬´Ó¶ø»ñÈ¡Ô­Ê¼ÀàĞÍ
+	//åˆ›å»ºæ™ºèƒ½æŒ‡é’ˆæ—¶ï¼Œå¯¹äºä¸€èˆ¬çš„ç±»å‹ï¼Œé€šè¿‡std::decayæ¥ç§»é™¤å¼•ç”¨å’Œcvç¬¦ï¼Œä»è€Œè·å–åŸå§‹ç±»å‹
 	template<typename U, class = typename std::enable_if<!std::is_same<typename std::decay<U>::type, Any>::value, U>::type>
 	Any(U && value) : m_ptr(new Derived < typename std::decay<U>::type>(std::forward<U>(value))),
 		m_tpIndex(std::type_index(typeid(typename std::decay<U>::type))){}
@@ -24,7 +24,7 @@ struct Any
 		return m_tpIndex == std::type_index(typeid(U));
 	}
 
-	//½«Any×ª»»ÎªÊµ¼ÊµÄÀàĞÍ
+	//å°†Anyè½¬æ¢ä¸ºå®é™…çš„ç±»å‹
 	template<class U>
 	U& AnyCast()
 	{
